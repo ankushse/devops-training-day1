@@ -1,0 +1,19 @@
+---
+
+#my first yaml file
+#
+#
+#
+
+ - hosts: boa
+   become: yes
+   tasks:
+   - name: download a bug URL
+     get_url:
+      url: http://speedtest-ny.turnkeyinternet.net/100mb.bin
+      dest: /tmp
+     async: 20
+     poll: 5 
+     
+
+

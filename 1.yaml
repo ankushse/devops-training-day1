@@ -1,0 +1,21 @@
+---
+
+#my first yaml file
+#
+#
+#
+
+ - hosts: boa
+   become: yes
+   tasks:
+   - name: installing telnet
+     yum:
+      name: httpd
+      state: present
+
+   - name: restart telnet
+     service:
+      name: httpd
+      state: restarted
+
+

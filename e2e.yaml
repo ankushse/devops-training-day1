@@ -1,0 +1,42 @@
+---
+
+#my first yaml file
+#
+#
+#
+
+ - hosts: boa
+   become: yes
+   tasks:
+   - name: installing httpd
+     yum:
+      name: httpd
+      state: present
+
+   - name: restart httpd service
+     service:
+      name: httpd
+      state: restarted
+
+
+   - name: copy html file
+     copy:
+      src: /home/ansible/index.html
+      dest: /var/www/html/index.html
+
+   - name: restart firewall service
+     service:
+      name: firewalld
+      state: restarted
+
+
+
+   - name: add firewall rule
+     firewalld:
+      service: http
+      state: enabled
+
+
+
+
+

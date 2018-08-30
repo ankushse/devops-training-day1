@@ -1,0 +1,34 @@
+---
+
+#my first yaml file
+#
+#
+#
+
+ - hosts: boa
+   become: yes
+
+   vars:
+     webserver: httpd
+     dbserver: mariadb
+     access: telnet
+
+
+
+   tasks:
+   - name: installing {{ webserver }}
+     yum:
+      name: "{{ webserver }}"
+      state: present
+
+   - name: installing {{ dbserver }}
+     yum:
+      name: "{{ dbserver }}"
+      state: present
+
+   - name: installing {{ access }}
+     yum:
+      name: "{{ access }}"
+      state: present
+
+

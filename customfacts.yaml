@@ -1,0 +1,20 @@
+---
+
+ - hosts: boa
+   become: yes
+   vars:
+     remote_dir: /etc/ansible/facts.d
+     facts_file: custom.fact
+
+   tasks:
+   - name: creating a fact dir
+     file:  
+      state: directory
+      path: "{{ remote_dir }}"
+      recurse: yes
+     ignore_errors: yes
+   - name: copy file with facts
+     copy:
+      src: "{{ facts_file }}"
+      dest: "{{ remote_dir }}"
+

@@ -1,0 +1,7 @@
+---
+
+ - name: restart service for maria db
+   service:
+    name: mysql
+    state: restarted
+  # notify: test1 
